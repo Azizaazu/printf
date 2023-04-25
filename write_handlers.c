@@ -51,7 +51,7 @@ int precision, int size)
  * @size: Size specifier
  * Return: Number of chars printed.
  */
-int handle_write_char(int is_negative, int ind, char buffer[], int flags,
+int write_number(int is_negative, int ind, char buffer[], int flags,
 int width, int precision, int size)
 {
 	int length = BUFF_SIZE - ind - 1;
@@ -77,14 +77,14 @@ int width, int precision, int size)
  * @buffer: buffer array to handle print
  * @flags: Calculates active flags.
  * @width: get width.
- * @precision: precision specifier
+ * @prec: precision specifier
  * @length: number length
  * @padd: padding char
  * @extra_c: extra char
  * Return: Number of chars printed.
  */
-int handle_write_char(int ind, char buffer[], int flags, int width,
-int precision, int length, char padd, char extra_c)
+int write_num(int ind, char buffer[], int flags, int width,
+int prec, int length, char padd, char extra_c)
 {
 	int i, padd_start = 1;
 
@@ -138,7 +138,7 @@ int precision, int length, char padd, char extra_c)
  * @size: Size specifier
  * Return: Number of chars printed.
  */
-int handle_write_char(int is_negative, int ind, char buffer[], int flags,
+int write_unsgnd(int is_negative, int ind, char buffer[], int flags,
 int width, int precision, int size)
 {
 	int length = BUFF_SIZE - ind - 1, i = 0;
@@ -193,7 +193,7 @@ int width, int precision, int size)
  * @padd_start: index at wich paddig should start
  * Return: Number of chars printed.
  */
-int handle_write_char(int ind, char buffer[], int flags, int width,
+int write_pointer(int ind, char buffer[], int flags, int width,
 char padd, int length, char extra_c, int padd_start)
 {
 	int i;
