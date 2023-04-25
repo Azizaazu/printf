@@ -103,15 +103,17 @@ int width, int precision, int size)
 /**
  * print_hexa - print an hexa nmbr in upper or lower
  * @types: lista of arguments
+ * @map_to: array of values to map the number
  * @buffer: buffer array to handle print
  * @flags: calculates active flags
+ * @flag_ch: calculate active flags
  * @width: get width
  * @precision: precision specification
  * @size: size specifier
  * Return: number of char printed
  */
-int print_hexa(va_list types, char buffer[], int flags,
-int width, int precision, int size)
+int print_hexa(va_list types,char map_to[], char buffer[], int flags,
+int flag_ch, int width, int precision, int size)
 {
 	int i = BUFF_SIZE - 2;
 	unsigned long int num = va_arg(types, unsigned long int);

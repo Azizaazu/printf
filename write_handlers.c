@@ -193,7 +193,7 @@ int width, int precision, int size)
  * @padd_start: index at wich paddig should start
  * Return: Number of chars printed.
  */
-int write_pointer(int ind, char buffer[], int flags, int width,
+int write_pointer(char buffer[], int ind,int flags, int width,
 char padd, int length, char extra_c, int padd_start)
 {
 	int i;
