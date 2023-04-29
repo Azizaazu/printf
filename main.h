@@ -52,7 +52,7 @@ int print_hexadecimal_number(va_list types, char buffer[],
         int flag, int width, int prec, int size);
 int print_int(va_list types, char buffer[],
 	int flag, int width, int prec, int size);
-int print_binary(va_list types, char buffer[],
+int print_binar(va_list types, char buffer[],
 	int flag, int width, int prec, int size);
 int print_hupper_number(va_list types, char buffer[],
 	int flag, int width, int prec, int size);
