@@ -12,6 +12,7 @@ int is_digit(char count)
 
 	return (0);
 }
+
 /**
  * convert_size_unsgnd - casts a number to specified size
  * @n: number to be casted
@@ -27,6 +28,7 @@ long int convert_size_unsgnd(unsigned long int n, int size)
 
 	return ((unsigned int)n);
 }
+
 /**
  * if_num_is_printable - evaluates if a char is printable
  * @count: char to be evaluated
@@ -38,6 +40,7 @@ int if_num_is_printable(char count)
 		return (1);
 	return (0);
 }
+
 /**
  * append_hexa_code - append ascci in hexadecimal code buffer
  * @buffer: array of chars
@@ -59,6 +62,7 @@ int append_hexa_code(char ascci_code, char buffer[], int i)
 
 	return (3);
 }
+
 /**
  * convert_size_number - casts a number to specified size
  * @n: number to be casted
@@ -74,3 +78,4 @@ long int convert_size_number(long int n, int size)
 
 	return ((int)n);
 }
+

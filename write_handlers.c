@@ -55,6 +55,7 @@ int width, int flag, char padd, char extra_c, int padd_start)
 		buffer[--index] = extra_c;
 	return (write(1, &buffer[index], BUFF_SIZE - index - 1));
 }
+
 /**
  * write_num - print a string
  * @index: index
@@ -111,6 +112,7 @@ int prec, int l, char padd, char extra_c)
 		buffer[--index] = extra_c;
 	return (write(1, &buffer[index], l));
 }
+
 /**
  * handle_write_char -prints a string
  * @c: char types
@@ -150,6 +152,7 @@ int prec, int size)
 	}
 	return (write(1, &buffer[0], 1));
 }
+
 /*  WRITE NUMBER */
 /**
  * write_number - print a string
@@ -194,8 +197,8 @@ int width, int prec, int size)
  * @size: Size specifier
  * Return: Number of chars printed.
  */
-int write_unsgnd_number(int is_negative, int index, char buffer[], int flag,
-int width, int prec, int size)
+int write_unsgnd_number(int is_negative, int index, char buffer[],
+int flag, int width, int prec, int size)
 {
 	int l = BUFF_SIZE - index - 1, i = 0;
 	char padd = ' ';
@@ -214,7 +217,6 @@ int width, int prec, int size)
 		buffer[--index] = '0';
 		l++;
 	}
-
 	if ((flag & F_ZERO) && !(flag & F_MINUS))
 		padd = '0';
 
@@ -234,6 +236,6 @@ int width, int prec, int size)
 			return (write(1, &buffer[0], i) + write(1, &buffer[index], l));
 		}
 	}
-
 	return (write(1, &buffer[index], l));
 }
+
