@@ -11,8 +11,8 @@
  * @padd_start: index at wich paddig should start
  * Return: Number of chars printed.
  */
-int write_pointer(char buffer[], int index, int l,
-int width, int flag, char padd, char extra_c, int padd_start)
+int write_pointer(char buffer[], int index, int l, int width, int flag,
+		char padd, char extra_c, int padd_start)
 {
 	int i;
 
@@ -182,7 +182,7 @@ int width, int prec, int size)
 	else if (flag & F_SPACE)
 		extra_ch = ' ';
 
-	return (write_number(index, buffer, flag, width, prec,
+	return (write_num(index, buffer, flag, width, prec,
 		l, padd, extra_ch));
 }
 

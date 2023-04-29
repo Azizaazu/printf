@@ -17,7 +17,7 @@ int flag, int width, int prec, int size)
 {
 	int i, unknow_len = 0, printed_chars = -1;
 	format_t format_types[] = {
-		{'c', print_char}, {'s', print_str}, {'%', print_perc},
+		{'c', print_char}, {'s', print_str}, {'%', print_perct},
 		{'i', print_int}, {'d', print_int}, {'b', print_binar},
 		{'u', print_unsigned_number}, {'o', print_octal_number},
 		{'x', print_hexadecimal_number}, {'X', print_hupper},
@@ -27,7 +27,7 @@ int flag, int width, int prec, int size)
 	};
 	for (i = 0; format_types[i].format != '\0'; i++)
 		if (format[*index] == format_types[i].format)
-			return (format_types[i].func(list, buffer, flag, width, prec, size));
+			return (format_types[i].fn(list, buffer, flag, width, prec, size));
 
 	if (format_types[i].format == '\0')
 	{
@@ -47,7 +47,7 @@ int flag, int width, int prec, int size)
 				--(*index);
 			return (1);
 		}
-		unknow_len += write(1, &fmt[*index], 1);
+		unknow_len += write(1, &format[*index], 1);
 		return (unknow_len);
 	}
 	return (printed_chars);
