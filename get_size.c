@@ -12,16 +12,20 @@
 int get_size(const char *format, int *i)
 {
 	int curr_i = *i + 1;
+<<<<<<< HEAD
 	int sizee;
+=======
+int size;
+>>>>>>> 92c53db3331be8f13c6acc5b7bc512eeb3a229ac
 
 	if (format[curr_i] == 'l')
-		sizee = S_LONG;
+		size = S_LONG;
 	else if (format[curr_i] == 'h')
-		sizee = S_SHORT;
+		size = S_SHORT;
 
-	if (sizee == 0)
+	if (size == 0)
 		*i = curr_i - 1;
 	else
 		*i = curr_i;
-	return (sizee);
+	return (size);
 }
