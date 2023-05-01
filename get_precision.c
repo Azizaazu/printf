@@ -3,11 +3,12 @@
 
 
 /**
- * get_precision - function that Calculates the precision for printing
- * @format: Formatted string in which to print the arguments
+ * get_precision - function to calculates the precision
+ * @format: formatted string
  * @i: List of arguments to be printed.
  * @list: list of arguments.
- * Return: Precision.
+ * Return: precision.
+ *
  */
 int get_precision(const char *format, int *i, va_list list)
 {
@@ -37,7 +38,5 @@ int get_precision(const char *format, int *i, va_list list)
 	}
 
 	*i = curr_i - 1;
-
-return (precision);
+	return (precision);
 }
-

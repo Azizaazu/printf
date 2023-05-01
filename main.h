@@ -38,15 +38,16 @@ struct fmt
  * @func_t: The function associated.
  */
 typedef struct fmt fmt_t;
-int _printf(const char *fmt, ...);
+int _printf(const char *format, ...);
+
 int handle_print(const char *fmt, int *i, va_list list, char buffer[], int flag, int width, int prec, int size);
 
 /*Functions */
 /* Functions for numbers */
-int print_unsigned_number(va_list types, char buffer[], int flag, int width, int prec, int size);
-int print_octal_number(va_list types, char buffer[], int flag, int width, int prec, int size);
-int print_hexa_number(va_list types, char map_to[],char buffer[], int flag, char flag_ch, int width, int prec, int size);
-int print_hexadecimal_number(va_list types, char buffer[], int flag, int width, int prec, int size);
+int print_unsigned_number(va_list type, char buffer[], int flag, int width, int prec, int size);
+int print_octal_number(va_list type, char buffer[], int flag, int width, int prec, int size);
+int print_hexa_number(va_list type, char map_to[],char buffer[], int flag, char flag_ch, int width, int prec, int size);
+int print_hexadecimal_number(va_list type, char buffer[], int flag, int width, int prec, int size);
 int print_int(va_list type, char buffer[], int flag, int width, int prec, int size);
 int print_binar(va_list type, char buffer[], int flag, int width, int prec, int size);
 int print_hupper_number(va_list type, char buffer[], int flag, int width, int prec, int size);
@@ -61,13 +62,13 @@ long int convert_size_unsgnd(unsigned long int n, int size);
 int append_hexa_code(char, char[], int);
 long int convert_size_number(long int n, int size);
 /* Function for non printable char */
-int print_non_printable_number(va_list types, char buffer[], int flag, int width, int prec, int size);
+int print_non_printable_number(va_list type, char buffer[], int flag, int width, int prec, int size);
 /*Function to print string in reverse*/
 int print_reverse_number(va_list type, char buffer[], int flag, int width, int prec; int size);
 /* Function for  memory address */
-int print_pointer(va_list types, char buffer[], int flag, int width, int prec, int size);
+int print_pointer(va_list type, char buffer[], int flag, int width, int prec, int size);
 /*Function to print a string in rot 13*/
-int print_rot13edstring(va_list types, char buffer[], int flag, int width, int prec, int size);
+int print_rot13edstring(va_list type, char buffer[], int flag, int width, int prec, int size);
 /* width handler */
 int write_pointer(char buffer[], int index, int l, int width, int flag, char padd, char extra_c, int padd_start);
 int write_unsgnd(int is_negative, int index, char buffer[], int flag, int width, int prec, int size);

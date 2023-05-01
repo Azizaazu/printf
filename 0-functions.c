@@ -1,38 +1,40 @@
 #include "main.h"
 
 
-/*** PRINT CHAR ***/
 
+
+/*** PRINT CHAR ***/
 /**
- * print_char - function that Prints a char
- * @types: List a of arguments
- * @buffer: Buffer array to handle print
- * @flag:  Calculates active flags
+ * print_char - function prints a character
+ * @type: List of arguments
+ * @buffer: Buffer array
+ * @flag: calculates active flags
  * @width: Width
  * @prec: Precision specification
  * @size: Size specifier
+ *
  * Return: Number of chars printed
  */
-int print_char(va_list type, char buffer[],
-	int flag, int width, int prec, int size)
+int print_char(va_list type, char buffer[], int flag,
+int width, int prec, int size)
 {
 	char c = va_arg(type, int);
 
-	return (handle_write_char(c, buffer, flag, width, precision, size));
+	return (handle_write_char(c, buffer, flag, width, prec, size));
 }
 /** PRINT A STRING ***/
 /**
- * print_string - function that Prints a string
- * @types: List a of arguments
- * @buffer: Buffer array to handle print
- * @flag:  Calculates active flags
+ * print_string - function prints a string
+ * @type: List of arguments
+ * @buffer: Buffer array
+ * @flag: calculates active flags
  * @width: get width.
  * @prec: Precision specification
  * @size: Size specifier
- * Return: Number of chars printed
+ * Return: Number of char
  */
 int print_string(va_list type, char buffer[],
-	int flag, int width, int prec, int size)
+int flag, int width, int prec, int size)
 {
 	int length = 0, i;
 	char *str = va_arg(type, char *);
@@ -72,24 +74,24 @@ int print_string(va_list type, char buffer[],
 			return (width);
 		}
 	}
-
 	return (write(1, str, length));
 }
 /******* PRINT PERCENT SIGN ***********/
 /**
- * print_perct - function that  Prints a percent sign
- * @types: Lista of arguments
- * @buffer: Buffer array to handle print
- * @flag:  Calculates active flags
+ * print_perct - function prints a percent
+ * @type: List of arguments
+ * @buffer: Buffer array
+ * @flag: calculates active flags
  * @width: get width.
  * @prec: Precision specification
  * @size: Size specifier
  * Return: Number of chars printed
+ *
  */
-int print_perct(va_list types, char buffer[],
-	int flag, int width, int prec, int size)
+int print_perct(va_list type, char buffer[],
+int flag, int width, int prec, int size)
 {
-	UNUSED(types);
+	UNUSED(type);
 	UNUSED(buffer);
 	UNUSED(flag);
 	UNUSED(width);
@@ -101,9 +103,9 @@ int print_perct(va_list types, char buffer[],
 
 /**** PRINT INT *********/
 /**
- * print_int - function that Print int
- * @types: Lista of arguments
- * @buffer: Buffer array to handle print
+ * print_int - function to print int
+ * @type: List of arguments
+ * @buffer: Buffer array
  * @flag:  Calculates active flags
  * @width: get width.
  * @prec: Precision specification
@@ -111,7 +113,7 @@ int print_perct(va_list types, char buffer[],
  * Return: Number of chars printed
  */
 int print_int(va_list type, char buffer[],
-	int flag, int width, int prec, int size)
+int flag, int width, int prec, int size)
 {
 	int i = BUFF_SIZE - 2;
 	int is_negative = 0;
@@ -137,7 +139,6 @@ int print_int(va_list type, char buffer[],
 		buffer[i--] = (num % 10) + '0';
 		num /= 10;
 	}
-
 	i++;
 
 	return (write_number(is_negative, i, buffer, flag, width, prec, size));
@@ -145,17 +146,18 @@ int print_int(va_list type, char buffer[],
 
 /***** PRINT BINARY *****/
 /**
- * print_binar - function that Prints an unsigned number
- * @types: Lista of arguments
- * @buffer: Buffer array to handle print
+ * print_binar - function to prints an unsigned number
+ * @type: List of arguments
+ * @buffer: Buffer array
  * @flag:  Calculates active flags
  * @width: get width.
  * @prec: Precision specification
  * @size: Size specifier
  * Return: Numbers of char printed.
+ *
  */
 int print_binar(va_list type, char buffer[],
-	int flag, int width, int prec, int size)
+int flag, int width, int prec, int size)
 {
 	unsigned int n, m, i, sum;
 	unsigned int a[32];
@@ -170,6 +172,7 @@ int print_binar(va_list type, char buffer[],
 	n = va_arg(type, unsigned int);
 	m = 2147483648; /* (2 ^ 31) */
 	a[0] = n / m;
+
 	for (i = 1; i < 32; i++)
 	{
 		m /= 2;

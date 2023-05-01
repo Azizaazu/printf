@@ -2,16 +2,17 @@
 
 /* REVERSE */
 /**
- * print_reverse_number - Prints reverse string.
- * @types: Lista of arguments
- * @buffer: Buffer array to handle print
- * @flag: Calculates active flags
+ * print_reverse_number - function to prints reverse string.
+ * @type: List of arguments
+ * @buffer: Buffer array
+ * @flag: calculates active flags
  * @width: get width
  * @prec: Precision specification
  * @size: Size specifier
  * Return: Numbers of chars printed
+ *
  */
-int print_reverse_number(va_list types, char buffer[],
+int print_reverse_number(va_list type, char buffer[],
 int flag, int width, int prec, int size)
 {
 	char *string;
@@ -22,7 +23,7 @@ int flag, int width, int prec, int size)
 	UNUSED(width);
 	UNUSED(size);
 
-	string = va_arg(types, char *);
+	string = va_arg(type, char *);
 
 	if (string == NULL)
 	{
@@ -45,23 +46,24 @@ int flag, int width, int prec, int size)
 
 /* POINTER */
 /**
- * print_pointer - Prints the value of a pointer variable
- * @types: List a of arguments
- * @buffer: Buffer array to handle print
- * @flag:  Calculates active flags
+ * print_pointer - function to prints the value of a pointer variable
+ * @type: List of arguments
+ * @buffer: Buffer array
+ * @flag: calculates active flags
  * @width: get width
  * @prec: Precision specification
  * @size: Size specifier
  * Return: Number of chars printed.
+ *
  */
-int print_pointer(va_list types, char buffer[],
+int print_pointer(va_list type, char buffer[],
 	int flag, int width, int prec, int size)
 {
 	char extra_c = 0, padd = ' ';
 	int i = BUFF_SIZE - 2, l = 2, padd_start = 1;
 	unsigned long n_addrs;
 	char map_to[] = "0123456789abcdef";
-	void *addrs = va_arg(types, void *);
+	void *addrs = va_arg(type, void *);
 
 	UNUSED(width);
 	UNUSED(size);
@@ -90,26 +92,28 @@ int print_pointer(va_list types, char buffer[],
 
 	i++;
 
-	return (write_pointer(buffer, i, l,
-		width, flag, padd, extra_c, padd_start));
+	return (write_pointer(buffer, i, l, width, flag,
+	padd, extra_c, padd_start));
 }
 
 /* NON PRINTABLE */
 /**
- * print_non_printable_number - Prints ascci codes in hexa of non print chars
- * @types: Lista of arguments
+ * print_non_printable_number - function to prints ascci codes
+ * in hexa of non print chars
+ * @type: List of arguments
  * @buffer: Buffer array to handle print
  * @flag: Calculates active flags
  * @width: get width
  * @prec: Precision specification
  * @size: Size specifier
  * Return: Number of chars printed
+ *
  */
-int print_non_printabl_number(va_list types, char buffer[],
+int print_non_printabl_number(va_list type, char buffer[],
 	int flag, int width, int prec, int size)
 {
 	int i = 0, offset = 0;
-	char *string = va_arg(types, char *);
+	char *string = va_arg(type, char *);
 
 	UNUSED(flag);
 	UNUSED(width);
@@ -134,19 +138,19 @@ int print_non_printabl_number(va_list types, char buffer[],
 	return (write(1, buffer, i + offset));
 }
 
-
 /* STRING IN ROT13 */
 /**
- * print_rot13ed string - Print a string in rot13.
- * @types: Lista of arguments
- * @buffer: Buffer array to handle print
- * @flag:  Calculates active flags
+ * print_rot13edstring - function to print a string in rot13.
+ * @type: Lista of arguments
+ * @buffer: Buffer array
+ * @flag: calculates active flags
  * @width: get width
  * @prec: Precision specification
  * @size: Size specifier
  * Return: Numbers of chars printed
+ *
  */
-int print_rot13ed string(va_list types, char buffer[],
+int print_rot13edstring(va_list type, char buffer[],
 	int flag, int width, int prec, int size)
 {
 	char a;
